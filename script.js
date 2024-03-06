@@ -3,8 +3,8 @@ const addEmployeesBtn = document.getElementById('add-employees-btn');
 //ABOVE FIXED ^
 
 // Collect employee data
+const employeesArray = [];
 const collectEmployees = function() {
-  const employees = [];
   const firstName = prompt("Enter first name: ");
   const lastName = prompt("Enter last name: ");
   const salary = prompt("Enter salary: ");
@@ -13,10 +13,11 @@ const collectEmployees = function() {
     lastName: lastName,
     salary: salary
   };
-  employees.push(employee);
-  return employees;
+  employeesArray.push(employee);
+  return employeesArray;
   // TODO: Get user input to create and return an array of employee objects
 }
+
 
 //^ABOVE WORKS
 
@@ -37,7 +38,7 @@ const getRandomEmployee = function(employeesArray) {
   const random = Math.floor(Math.random()* employeesArray.length);
   //will select random based on one of the array rows due to .length
   const randomEmployee = employeesArray[random];
-  console.log("Random: "+randomEmployee);
+  console.log("Random: "+  randomEmployee.firstName);
 }
 
 
