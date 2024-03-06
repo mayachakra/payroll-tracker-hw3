@@ -7,7 +7,7 @@ const employeesArray = [];
 const collectEmployees = function() {
   const firstName = prompt("Enter first name: ");
   const lastName = prompt("Enter last name: ");
-  const salary = prompt("Enter salary: ");
+  const salary = parseFloat(prompt("Enter salary: "));
   const employee ={
     firstName: firstName,
     lastName: lastName,
@@ -18,19 +18,20 @@ const collectEmployees = function() {
   // TODO: Get user input to create and return an array of employee objects
 }
 
-
-//^ABOVE WORKS
-
+// Display the average salary
 
 // Display the average salary
 const displayAverageSalary = function(employeesArray) {
-  let totalSalary=0;
-  employeesArray.forEach(function(employee){
-    totalSalary += employee.salary;
-  });
-  const averageSalary = totalSalary / employeesArray.length;
-  // TODO: Calculate and display the average salary
-}
+    let totalSalary=0;
+    employeesArray.forEach(function(employee){
+      totalSalary += employee.salary;
+    });
+    const averageSalary = totalSalary / employeesArray.length;
+    console.log(employeesArray.length);
+    // TODO: Calculate and display the average salary
+    console.log(averageSalary);
+  }
+  
 
 // Select a random employee
 const getRandomEmployee = function(employeesArray) {
@@ -38,7 +39,7 @@ const getRandomEmployee = function(employeesArray) {
   const random = Math.floor(Math.random()* employeesArray.length);
   //will select random based on one of the array rows due to .length
   const randomEmployee = employeesArray[random];
-  console.log("Random: "+  randomEmployee.firstName);
+  console.log("Random Employee: "+  randomEmployee.firstName);
 }
 
 
