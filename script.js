@@ -5,15 +5,28 @@ const addEmployeesBtn = document.getElementById('add-employees-btn');
 // Collect employee data
 const employeesArray = [];
 const collectEmployees = function() {
-  const firstName = prompt("Enter first name: ");
-  const lastName = prompt("Enter last name: ");
-  const salary = parseFloat(prompt("Enter salary: "));
-  const employee ={
-    firstName: firstName,
-    lastName: lastName,
-    salary: salary
-  };
-  employeesArray.push(employee);
+    let newEmployee = true;
+    while(newEmployee){
+        const firstName = prompt("Enter first name: ");
+        const lastName = prompt("Enter last name: ");
+        let salary;
+        do{
+            salary = parseFloat(prompt("Enter salary: "));
+            if(isNaN(salary)){
+                alert("Please enter a valid number.");
+            }
+        } while(isNaN(salary));
+        const employee ={
+            firstName: firstName,
+            lastName: lastName,
+            salary: salary
+        };
+        employeesArray.push(employee);
+        const continueEntry = prompt("Would you like to continue adding employees? Enter yes or no:").toLowerCase();
+        if (continueEntry !== 'yes'){
+            newEmployee = false;
+        }
+    }
   return employeesArray;
   // TODO: Get user input to create and return an array of employee objects
 }
